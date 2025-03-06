@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="/practic.html/practice.css">
+</head>
+<body>
+  <div>
+    <div id="hover-container">
+      <h1>This will bounce</h1>
+      <p>hello</p>
+      <p>hello</p>
+      <p>hello</p>
+    </div>
+    
+  <script>
+
+const container = document.getElementById('hover-container');
+const elements = container.querySelectorAll('h1, p');
+
+// Apply animation on hover
+container.addEventListener('mouseover', () => {
+  elements.forEach((element) => {
+    element.style.animation = 'hover-bounce 0.8s ease-in-out forwards';
+  });
+});
+
+// Reverse animation on hover out
+container.addEventListener('mouseout', () => {
+  elements.forEach((element) => {
+    element.style.animation = 'reverse-bounce 0.5s ease forwards';
+  });
+});
+
+  </script>
+</body>
+</html>
+
+// CSS
+
+div{
+  display: inline-block;
+  background-color: red;
+  width: auto;
+  height: auto;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  animation: none; /* No animation by default */
+  transform: translateY(0); /* Starting position */
+}
+
+/* Keyframes for the hover animation */
+@keyframes hover-bounce {
+  0% {
+    transform: translateY(0%);
+  }
+  25%{
+    transform: translateY(5%);
+  }
+  50% {
+    transform: translateY(-40%);
+  }
+  100% {
+    transform: translateY(-30%);
+  }
+}
+
+/* Keyframes for the reverse (hover-out) animation */
+@keyframes reverse-bounce {
+  0% {
+    transform: translateY(-30%);
+  }
+  50% {
+    transform: translateY(-30%);
+  }
+  70% {
+    transform: translateY(-20%);
+  }
+  80% {
+    transform: translateY(-10%);
+  }
+
+}
+
